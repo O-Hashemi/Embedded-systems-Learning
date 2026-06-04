@@ -19,7 +19,6 @@ body {
 .hero p {
     color: #555;
     font-size: 20px;
-    margin: 0;
 }
 
 .dashboard-grid {
@@ -37,16 +36,10 @@ body {
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
-.info-card h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
 .value {
     font-size: 36px;
     font-weight: bold;
-    margin: 0 0 28px 0;
-    color: #222;
+    margin-bottom: 28px;
 }
 
 .good {
@@ -66,10 +59,6 @@ body {
     align-items: center;
 }
 
-.image-container {
-    text-align: center;
-}
-
 .image-container img {
     width: 100%;
     max-width: 600px;
@@ -85,16 +74,14 @@ body {
     text-align: left;
 }
 
-.project-info h2 {
+.project-info h2,
+.story-card h2 {
     color: #2f67c7;
-    font-size: 38px;
-    margin-bottom: 20px;
 }
 
 .project-info p {
     font-size: 20px;
     line-height: 1.8;
-    color: #333;
 }
 
 .design-story {
@@ -121,27 +108,14 @@ body {
     margin-bottom: 20px;
 }
 
-.story-card h2 {
-    color: #2f67c7;
-    font-size: 28px;
-    margin-bottom: 15px;
-}
-
 .story-card p {
     font-size: 17px;
     line-height: 1.7;
-    color: #333;
 }
 
 @media (max-width: 1000px) {
-    .dashboard-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-section {
-        grid-template-columns: 1fr;
-    }
-
+    .dashboard-grid,
+    .project-section,
     .design-story {
         grid-template-columns: 1fr;
     }
