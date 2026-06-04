@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squirtle Smart Garden</title>
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=12">
 </head>
 
 <body>
@@ -39,80 +39,77 @@
 
 <section class="split-section">
     <div class="image-box">
-        <img src="squirtle.jpg" alt="Final Squirtle Smart Garden Hero Showcase">
+        <img src="squirtle.jpg" alt="Final Squirtle Smart Garden Showcase">
     </div>
 
     <div class="text-box">
         <h2>Project Overview</h2>
-        <p>The Squirtle Smart Garden is an ESP32-powered automated watering system designed to monitor environmental conditions and irrigate plants automatically based on real-time soil dynamics.</p>
-        <p>The system continuously tracks ambient temperature, relative humidity, and fluid reservoir levels while managing a low-voltage DC water pump via a dedicated MOSFET switching module.</p>
-        <p>This project integrates 3D mechanical modeling, embedded hardware design, custom PCB soldering, microcontroller programming, and full-stack web development into a unified engineering solution.</p>
+        <p>The Squirtle Smart Garden is an automated watering system I built using an ESP32. The main goal was to create a device that keeps an eye on the surrounding environment and waters my plants automatically when the soil gets too dry.</p>
+        <p>The system tracks temperature, humidity, and the water level in the tank, and uses a MOSFET module to safely turn a small water pump on and off when needed.</p>
+        <p>This project was an awesome way for me to combine a bunch of different skills, including 3D printing, circuit design, soldering, programming, and web development into one working project.</p>
     </div>
 </section>
 
 <section class="section-title">
     <h2>Design Journey</h2>
-    <p>How the project evolved from the original concept into the final Squirtle design.</p>
+    <p>How the project evolved from a ladybug concept into the final Squirtle design.</p>
 </section>
 
 <section class="three-grid">
     <div class="story-card">
-        <img src="image_6a0e0b.jpg" alt="Raw 3D printed baseline chassis layout">
+        <img src="image_6a0e0b.jpg" alt="Raw 3D printed baseline plate">
         <h3>Original Ladybug Design</h3>
-        <p>The project originally began as a Ladybug-themed smart garden. The concept was creative, but once I started planning the physical build, I ran into severe space limitations. There simply wasn't enough room inside the shell to hold the ESP32, the wiring, and a functional water reservoir without needing an awkward secondary tank. This prototype highlighted the need for a much more spacious and practical design.</p>
+        <p>The project originally started out as a Ladybug-themed smart garden. It was a fun idea, but once I started trying to fit the physical pieces together, I ran into a massive space problem. There just wasn't enough room inside the shell to hold the ESP32, the messy wiring, and a water tank without needing a separate, awkward external bucket. It quickly taught me that I needed a much bigger and more practical design.</p>
     </div>
 
     <div class="story-card">
-        <img src="image_6a0e23.jpg" alt="3D Blender model of the Squirtle enclosure">
+        <img src="image_6a0e23.jpg" alt="3D Blender model of Squirtle">
         <h3>Design Evaluation</h3>
-        <p>After reviewing the limitations of the ladybug layout, I knew I needed a major upgrade. I focused the redesign on three main goals: increasing internal space, making component placement cleaner, and ensuring long-term maintainability. This phase taught me how to take a fun concept and adapt it into a realistic engineering solution.</p>
+        <p>After realizing the ladybug layout wouldn't work, I decided to do a major redesign. I focused on three main goals: giving myself way more internal space, making the wiring path cleaner, and making it easier to fix if something went wrong. This phase was all about taking a fun creative concept and tweaking it so it actually works in the real world.</p>
     </div>
 
-   <div class="story-card">
-    <img src="image_6a0e08.jpg" alt="Assembled system testing next to IDE monitor">
-    <h3>Final Squirtle Design</h3>
-    <p>The final Squirtle design provided the perfect sweet spot for fluid targeting. By leveraging the forward-facing anatomy of the character, I was able to direct the water line precisely into the center of the plant pot where the root zone needs it most. This completely solved my previous placement issues and created a highly reliable, standalone smart garden!</p>
-</div>
-    
+    <div class="story-card">
+        <img src="image_6a0e08.jpg" alt="Testing setup on my desk">
+        <h3>Final Squirtle Design</h3>
+        <p>The final Squirtle design ended up being the perfect sweet spot for fluid targeting. By using the natural shape of the character, I could easily aim the water line straight into the center of the pot where the roots actually need it. This completely solved my layout issues and gave me a reliable, all-in-one smart garden!</p>
+    </div>
 </section>
 
 <section class="section-title">
     <h2>System Architecture</h2>
-    <p>The ESP32 acts as the main controller for the sensors, pump system, and dashboard.</p>
+    <p>How the ESP32 controls the sensors, pump system, and dashboard.</p>
 </section>
 
 <section class="split-section">
     <div class="text-box">
         <h2>How It Works</h2>
-        <p>• <strong>Environmental Telemetry:</strong> An onboard sensor array continuously measures ambient temperature and relative humidity.</p>
-        <p>• <strong>Fluid Dynamics Monitoring:</strong> A dedicated water-level sensor monitors the reservoir to protect the pump from dry-run conditions.</p>
-        <p>• <strong>Embedded Control Logic:</strong> The ESP32 processes real-time sensor inputs and executes closed-loop control algorithms to actuate the pump via a MOSFET module.</p>
-        <p>• <strong>IoT Web Interface:</strong> The microcontroller acts as a lightweight web server, transmitting real-time system diagnostics to a responsive browser-based dashboard for remote monitoring.</p>
+        <p>• <strong>Checking the Air:</strong> A sensor constantly reads the surrounding temperature and humidity levels.</p>
+        <p>• <strong>Watching the Tank:</strong> A float switch checks if there's enough water left in the tank so the pump never runs dry and burns out.</p>
+        <p>• <strong>Brain Power:</strong> The ESP32 processes all these sensor numbers and decides exactly when to trigger the pump through the MOSFET module.</p>
+        <p>• <strong>The Dashboard:</strong> The ESP32 hosts a simple local web server, which lets me monitor everything happening with the plant live right through a web browser.</p>
     </div>
 
     <div class="image-box">
-        <img src="image_6a0e29.jpg" alt="Embedded circuit layout inside custom chassis deck">
-        <span class="caption"><strong>Figure 1.0:</strong> Embedded circuit layout inside the custom chassis deck, featuring the integrated mechanical stabilizing hook to counteract unbalances.</span>
+        <img src="image_6a0e29.jpg" alt="Wiring layout inside the chassis">
+        <span class="caption"><strong>Figure 1.0:</strong> A look inside the top deck wiring. You can see the custom hook extending to the left that I printed to help balance the weight on the pot.</span>
     </div>
 </section>
 
 <section class="section-title">
-    <h2>Prototype Testing Analysis</h2>
-    <p>Real-world hardware constraints encountered during initial assembly tests.</p>
+    <h2>Prototyping & Reality Checks</h2>
+    <p>The unexpected challenges I hit when assembling the hardware for the first time.</p>
 </section>
 
-<section class="split-section baseline-shift">
+<section class="split-section">
     <div class="image-box">
-        <img src="image_6a86a5.png" alt="Testing center of mass over pot rim">
+        <img src="image_6a86a5.png" alt="Testing balance on the pot">
     </div>
-   <div class="text-box analysis-box">
-    <h3>Mechanical & Fluid Dynamics Bottlenecks</h3>
-    <p>During physical prototyping, initial system integration testing highlighted three critical design constraints:</p>
-    <p>• <strong>Center of Mass & Instability:</strong> As shown here, the cantilevered chassis design shifted the net center of mass drastically outside the footprint of the plant pot. The combined weight of the pump and electronics created an aggressive overturning moment during solo mounts.</p>
-    <p>• <strong>The Temporary Solution:</strong> To keep the prototype stable for electrical validation, I 3D-printed a custom mechanical stabilizing hook (visible extending to the left rim of the pot). While this successfully counteracted the load, testing proved that a total structural overhaul is ideal for a production model.</p>
-    <p>• <strong>Fluid Routing & Nozzle Geometry:</strong> In an earlier iteration, I designed a V-shaped funnel at the bottom to direct the water. However, physical testing revealed that the funnel geometry restricted flow, caused clogging risks, and misdirected water away from the root core. This drove the pivot to the Squirtle chassis, utilizing its natural layout to drop water cleanly into the center of the soil layout.</p>
-</div>
-    
+    <div class="text-box">
+        <h2>Fixing Balance & Water Flow Issues</h2>
+        <p>Prototyping is always a bit messy, and testing this setup on an actual plant pot showed me two big flaws I needed to fix:</p>
+        <p>• <strong>It Kept Tipping Over:</strong> Because the pump and electronics sit out on the edge, the weight distribution was totally off. The whole thing wanted to tip forward right off the pot. To keep my prototype steady so I could finish testing the code, I quickly modeled and 3D-printed a stabilizing hook (you can see it resting on the left side of the pot rim). It fixed the balance for now, but the next version will have a much wider, centered base.</p>
+        <p>• <strong>The Funnel Failed:</strong> Before choosing the Squirtle shape, I actually tried putting a V-shaped funnel at the bottom to direct the water. It turned out to be a terrible idea—the water pooled up, it threatened to clog, and it sprayed water away from the center of the soil. Pivoting to the Squirtle design solved this completely since the water now drops straight out of the front mouth directly onto the roots.</p>
+    </div>
 </section>
 
 <section class="section-title">
@@ -122,32 +119,32 @@
 <section class="three-grid">
     <div class="small-card">
         <h3>Microcontroller</h3>
-        <p>ESP32</p>
+        <p>ESP32 Dev Module</p>
     </div>
 
     <div class="small-card">
         <h3>Sensors</h3>
-        <p>Temperature/Humidity Sensor and a Float Switch</p>
+        <p>DHT Temperature/Humidity Sensor & a Float Switch</p>
     </div>
 
     <div class="small-card">
         <h3>Water System</h3>
-        <p>Water Pump, MOSFET Module, Reservoir, Tubing</p>
+        <p>Submersible Pump, MOSFET Switching Module, Vinyl Tubing</p>
     </div>
 
     <div class="small-card">
         <h3>Structure</h3>
-        <p>3D Printed Squirtle Body and Shell</p>
+        <p>3D Printed Custom Squirtle Body & Shell</p>
     </div>
 
     <div class="small-card">
-        <h3>Power</h3>
-        <p>External Power Supply and Common Ground System</p>
+        <h3>Power Setup</h3>
+        <p>External DC Power Supply with a Shared Common Ground</p>
     </div>
 
     <div class="small-card">
-        <h3>Website</h3>
-        <p>HTML, CSS, GitHub Pages</p>
+        <h3>Web Stack</h3>
+        <p>HTML, CSS, and GitHub Pages for hosting</p>
     </div>
 </section>
 
@@ -156,34 +153,34 @@
 </section>
 
 <section class="features">
-    <p>✅ Automatic watering control</p>
-    <p>✅ Temperature monitoring</p>
-    <p>✅ Humidity monitoring</p>
-    <p>✅ Water level detection</p>
-    <p>✅ Pump cooldown protection</p>
-    <p>✅ Web-based dashboard</p>
+    <p>✅ Automatic pump control based on soil needs</p>
+    <p>✅ Live temperature tracking</p>
+    <p>✅ Live humidity tracking</p>
+    <p>✅ Built-in low water safety shutoff</p>
+    <p>✅ Pump cooldown timer to prevent flooding</p>
+    <p>✅ Web dashboard for easy monitoring</p>
 </section>
 
 <section class="section-title">
-    <h2>Skills Learned</h2>
+    <h2>Skills I Picked Up</h2>
 </section>
 
 <section class="features">
-    <p>3D Modeling (Blender)</p>
-    <p>3D Printing</p>
-    <p>Soldering</p>
-    <p>ESP32 Programming</p>
-    <p>Sensor Integration</p>
-    <p>HTML/CSS Web Development</p>
-    <p>GitHub Pages Deployment</p>
+    <p>3D Modeling in Blender</p>
+    <p>3D Printing & Troubleshooting Failures</p>
+    <p>Soldering Components Nicely</p>
+    <p>C++ ESP32 Programming</p>
+    <p>Sensor Calibration & Testing</p>
+    <p>Basic Front-End Web Development</p>
+    <p>Working with Git & GitHub Pages</p>
 </section>
 
 <section class="section-title">
-    <h2>Future Improvements</h2>
+    <h2>What's Next? (Future Improvements)</h2>
 </section>
 
 <section class="text-box full-width">
-    <p>For the next version, I plan to develop a companion mobile app and optimize the internal wire management by designing specific routing channels into the 3D print. I also want to upgrade to a more powerful pump and add a nutrient tracking system. Finally, I’ll be adjusting my 3D printing settings to ensure a completely leak-proof reservoir design without needing secondary glue sealants.</p>
+    <p>For version 2.0, I want to build a mobile app so I can check on the plant away from home, and I definitely want to add built-in wire routing paths inside the 3D print to hide all the cables. I'm also looking into a stronger pump and a nutrient tracker. Finally, I'll be tweaking my 3D printer settings to make the water reservoir completely leak-proof right off the print bed, so I don't have to rely on superglue or hot glue to seal up tiny holes!</p>
 </section>
 
 <footer>
