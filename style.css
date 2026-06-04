@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 30px;
     text-align: center;
+    color: #222;
 }
 
 .hero {
@@ -26,20 +27,30 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto 80px auto;
+}
+
+.info-card,
+.text-box,
+.story-card,
+.small-card {
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
 .info-card {
-    background: white;
     padding: 28px;
-    border-radius: 25px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+.info-card h2 {
+    font-size: 22px;
 }
 
 .value {
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 28px;
+    margin: 0 0 28px 0;
 }
 
 .good {
@@ -50,7 +61,7 @@ body {
     color: #e53935;
 }
 
-.project-section {
+.split-section {
     max-width: 1400px;
     margin: 80px auto;
     display: grid;
@@ -59,64 +70,120 @@ body {
     align-items: center;
 }
 
-.image-container img {
+.image-box img,
+.story-card img {
     width: 100%;
-    max-width: 600px;
     border-radius: 25px;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
-.project-info {
-    background: white;
+.image-box img {
+    max-width: 600px;
+}
+
+.text-box {
     padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
     text-align: left;
 }
 
-.project-info h2,
-.story-card h2 {
+.text-box h2,
+.section-title h2,
+.story-card h3,
+.small-card h3 {
     color: #2f67c7;
 }
 
-.project-info p {
+.text-box h2 {
+    font-size: 38px;
+}
+
+.text-box p {
     font-size: 20px;
     line-height: 1.8;
 }
 
-.design-story {
+.section-title {
+    max-width: 1000px;
+    margin: 90px auto 35px auto;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #555;
+    font-size: 20px;
+}
+
+.three-grid {
     max-width: 1400px;
-    margin: 80px auto;
+    margin: 0 auto 80px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 35px;
 }
 
-.story-card {
-    background: white;
+.story-card,
+.small-card {
     padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
     text-align: left;
 }
 
 .story-card img {
-    width: 100%;
     height: 260px;
     object-fit: cover;
-    border-radius: 20px;
     margin-bottom: 20px;
 }
 
-.story-card p {
+.story-card h3,
+.small-card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.story-card p,
+.small-card p {
     font-size: 17px;
     line-height: 1.7;
 }
 
+.features {
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.features p {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.12);
+}
+
+.full-width {
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+    text-align: center;
+}
+
+footer {
+    margin-top: 80px;
+    padding: 30px;
+    color: #555;
+    font-size: 18px;
+}
+
 @media (max-width: 1000px) {
     .dashboard-grid,
-    .project-section,
-    .design-story {
+    .split-section,
+    .three-grid,
+    .features {
         grid-template-columns: 1fr;
     }
 
@@ -124,8 +191,9 @@ body {
         font-size: 38px;
     }
 
-    .project-info,
-    .story-card {
+    .text-box,
+    .story-card,
+    .small-card {
         text-align: center;
     }
 }
