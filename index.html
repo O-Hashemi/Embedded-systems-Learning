@@ -39,7 +39,7 @@
 
 <section class="split-section">
     <div class="image-box">
-        <img src="squirtle.jpg" alt="Final Squirtle Smart Garden Showcase">
+        <img src="hero-squirtle.jpg" alt="Final Painted Squirtle Smart Garden Showcase">
     </div>
 
     <div class="text-box">
@@ -57,21 +57,21 @@
 
 <section class="three-grid">
     <div class="story-card">
-        <img src="image_6a0e0b.jpg" alt="Raw 3D printed internal layout">
+        <img src="ladybug-proto.jpg" alt="Raw flat 3D printed plate layout">
         <h3>Original Ladybug Design</h3>
-        <p>The project originally started as a ladybug-themed smart garden. It was a fun creative concept, but once I started planning the physical build, I ran into severe space limitations. There simply wasn't enough room inside the shell to hold the ESP32, the wiring, and a water reservoir without needing an awkward external tank. This initial prototype highlighted the need for a much more spacious and practical layout.</p>
+        <p>The project originally started as a ladybug-themed smart garden. While a fun creative concept, planning the physical build revealed severe internal space limitations. There simply wasn't enough vertical room inside the flat shell layout to house the microcontroller, wiring matrix, and internal plumbing without requiring an awkward, messy external reservoir tank.</p>
     </div>
 
     <div class="story-card">
-        <img src="image_6a0e23.jpg" alt="3D Blender model of Squirtle">
-        <h3>Design Evaluation</h3>
-        <p>After realizing the limitations of the ladybug layout, I shifted focus to a complete redesign. My main goals were to increase the internal space, make the component layout cleaner, and ensure it was easy to maintain. This phase taught me how to take a creative idea and adapt it so it actually functions reliably in the real world.</p>
+        <img src="unstable-proto.jpg" alt="Unpainted prototype highlighting front-heavy tilt">
+        <h3>Prototyping & Weight Imbalance</h3>
+        <p>Pivoting to a character-based design, I 3D printed an initial physical chassis. However, hands-on testing exposed a major mechanical flaw: putting the heavy peristaltic pump and electronics out on the edge shifted the center of mass completely off-balance, causing the unit to tip forward off the pot. I had to print a temporary stabilizing hook to keep it steady during electrical testing.</p>
     </div>
 
     <div class="story-card">
-        <img src="image_6a0e08.jpg" alt="Testing setup on desk">
-        <h3>Final Squirtle Design</h3>
-        <p>The final Squirtle design ended up being the perfect choice for water targeting. By leveraging the natural shape of the character, I could route the water line to drop water precisely into the center of the pot where the root zone needs it most. This completely solved my previous component layout issues and resulted in a reliable, standalone smart garden.</p>
+        <img src="squirtle-cad.jpg" alt="3D Blender CAD model showing corrected balance">
+        <h3>Final Balanced Squirtle Design</h3>
+        <p>Taking lessons directly from the flawed physical prototype, I engineered the final digital CAD model. I completely reconfigured the internal dimensions, balanced the hardware weight distribution directly over the mount point, and integrated custom routing channels. This optimized layout entirely eliminated the tipping issue, resulting in a perfectly stable, standalone smart garden system.</p>
     </div>
 </section>
 
@@ -90,8 +90,8 @@
     </div>
 
     <div class="image-box">
-        <img src="image_6a0e29.jpg" alt="Wiring layout inside the chassis">
-        <span class="caption"><strong>Figure 1.0:</strong> Internal circuit layout. A custom stabilizing hook extends to the left rim of the pot to help balance the off-center weight.</span>
+        <img src="internal-circuits.jpg" alt="Clean internal wiring layout inside the shell">
+        <span class="caption"><strong>Figure 1.0:</strong> Internal circuit matrix and component layout optimized within the final chassis shell.</span>
     </div>
 </section>
 
@@ -102,13 +102,13 @@
 
 <section class="split-section">
     <div class="image-box">
-        <img src="image_6a86a5.png" alt="Testing balance on the pot">
+        <img src="unstable-proto.jpg" alt="Testing balance on the pot">
     </div>
     <div class="text-box">
         <h2>Mechanical & Fluid Dynamics Adjustments</h2>
-        <p>Testing the physical prototype on an actual plant pot brought forward a few unexpected design flaws that required hands-on troubleshooting:</p>
-        <p>• <strong>Weight Distribution Issues:</strong> Because the pump and electronics sit out on the edge, the center of mass was off-balance, causing the assembly to tip forward. To keep the system steady for electrical testing, I designed and 3D-printed a stabilizing hook that rests on the left side of the pot rim. While it worked as a temporary fix, the next version will feature a wider, centered base to distribute the weight evenly.</p>
-        <p>• <strong>Funnel Geometry Failure:</strong> In an earlier iteration, I tried using a V-shaped funnel at the bottom to direct the water flow. However, testing showed that the funnel restricted the flow, created a clogging risk, and misdirected water away from the soil core. Pivoting to the Squirtle chassis fixed this entirely, as water now drops cleanly out of the front directly onto the roots.</p>
+        <p>Testing the physical prototype on an actual plant pot brought forward critical design milestones that required hands-on troubleshooting:</p>
+        <p>• <strong>Weight Distribution Management:</strong> Real-world testing confirmed that mounting components away from the central core destabilized the alignment. The integration of a temporary balancing hook allowed active circuit testing to continue safely while the true, balanced weight boundaries were being calculated for the final CAD revisions.</p>
+        <p>• <strong>Funnel Geometry Evaluation:</strong> In an earlier iteration, a V-shaped funnel assembly was evaluated at the base to direct water flow. Flow analysis revealed that this structural shape created restrictions and a high clogging risk. This direction was abandoned in favor of the direct-drop alignment optimized inside the final Squirtle layout, ensuring fluid safely hits the center root zone.</p>
     </div>
 </section>
 
