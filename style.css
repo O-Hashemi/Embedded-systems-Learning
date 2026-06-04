@@ -81,6 +81,17 @@ body {
     max-width: 600px;
 }
 
+/* Captions underneath hardware breakdown images */
+.caption {
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    color: #555;
+    text-align: left;
+    padding: 0 10px;
+    line-height: 1.4;
+}
+
 .text-box {
     padding: 40px;
     text-align: left;
@@ -89,12 +100,18 @@ body {
 .text-box h2,
 .section-title h2,
 .story-card h3,
-.small-card h3 {
+.small-card h3,
+.analysis-box h3 {
     color: #2f67c7;
 }
 
 .text-box h2 {
     font-size: 38px;
+}
+
+.analysis-box h3 {
+    font-size: 30px;
+    margin-top: 0;
 }
 
 .text-box p {
@@ -194,6 +211,10 @@ footer {
     .text-box,
     .story-card,
     .small-card {
+        text-align: center;
+    }
+    
+    .caption {
         text-align: center;
     }
 }
