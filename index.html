@@ -63,7 +63,7 @@
     </div>
 
     <div class="story-card">
-        <img src="unstable-proto.jpg" alt="Unpainted prototype highlighting front-heavy tilt">
+        <img src="unstable-no-hook.jpg" alt="Unpainted prototype highlighting front-heavy tilt">
         <h3>Prototyping & Weight Imbalance</h3>
         <p>Pivoting to a character-based design, I 3D printed an initial physical chassis. However, hands-on testing exposed a major mechanical flaw: putting the heavy peristaltic pump and electronics out on the edge shifted the center of mass completely off-balance, causing the unit to tip forward off the pot. I had to print a temporary stabilizing hook to keep it steady during electrical testing.</p>
     </div>
@@ -101,9 +101,17 @@
 </section>
 
 <section class="split-section">
-    <div class="image-box">
-        <img src="unstable-proto.jpg" alt="Testing balance on the pot">
+    <div class="image-comparison-box" style="display: flex; gap: 15px; flex-wrap: wrap; flex: 1; max-width: 100%;">
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="unstable-no-hook.jpg" alt="Unstable chassis tipping forward without hook" style="width: 100%; border-radius: 8px; object-fit: cover;">
+            <span style="display: block; margin-top: 5px; font-size: 0.9rem; color: #555; font-weight: bold;">❌ Tipping Forward (No Hook)</span>
+        </div>
+        <div style="flex: 1; min-width: 200px; text-align: center;">
+            <img src="unstable-with-hook.jpg" alt="Chassis balanced on pot using 3D printed hook" style="width: 100%; border-radius: 8px; object-fit: cover;">
+            <span style="display: block; margin-top: 5px; font-size: 0.9rem; color: #555; font-weight: bold;">⚠️ Temporary Fix (With Hook)</span>
+        </div>
     </div>
+
     <div class="text-box">
         <h2>Mechanical & Fluid Dynamics Adjustments</h2>
         <p>Testing the physical prototype on an actual plant pot brought forward critical design milestones that required hands-on troubleshooting:</p>
