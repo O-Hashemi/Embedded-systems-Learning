@@ -1,80 +1,40 @@
-body {
-    background-color: #dff6ff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 30px;
-    text-align: center;
-}
-
-.hero {
-    margin-bottom: 35px;
-}
-
-.hero h1 {
-    color: #2f67c7;
-    font-size: 42px;
-    margin-bottom: 8px;
-}
-
-.hero p {
-    color: #555;
-    font-size: 20px;
-    margin: 0;
-}
-
-.dashboard-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+.project-section {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
 
-.info-card {
-    background: white;
-    padding: 25px;
-    border-radius: 22px;
+.image-container img {
+    width: 100%;
+    border-radius: 20px;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
-.info-card h2 {
-    font-size: 22px;
-    margin-bottom: 8px;
+.project-info {
+    text-align: left;
 }
 
-.value {
-    font-size: 34px;
-    font-weight: bold;
-    margin: 0 0 25px 0;
-    color: #222;
+.project-info h2 {
+    color: #2f67c7;
+    margin-bottom: 20px;
 }
 
-.good {
-    color: green;
+.project-info p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
 }
 
-.off {
-    color: red;
-}
+@media (max-width: 900px) {
 
-.warning {
-    color: orange;
-}
-
-.low {
-    color: red;
-}
-
-@media (max-width: 800px) {
-    .dashboard-grid {
+    .project-section {
         grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 32px;
-    }
-
-    body {
-        padding: 20px;
+    .project-info {
+        text-align: center;
     }
 }
