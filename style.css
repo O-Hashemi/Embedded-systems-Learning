@@ -6,16 +6,56 @@ body {
     padding: 20px;
 }
 
-h1 {
-    color: #0077cc;
+.header {
     margin-bottom: 30px;
+}
+
+.header h1 {
+    color: #2f67c7;
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: #555;
+    font-size: 18px;
 }
 
 .card {
     background: white;
-    width: 350px;
+    width: 450px;
+    max-width: 90%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.good {
+    color: green;
+}
+
+.off {
+    color: red;
+}
+
+.on {
+    color: green;
+}
+
+.warning {
+    color: orange;
+}
+
+.low {
+    color: red;
 }
