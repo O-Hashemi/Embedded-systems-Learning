@@ -1,9 +1,73 @@
+body {
+    background-color: #dff6ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Header */
+
+.hero {
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: #2f67c7;
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #555;
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Dashboard Cards */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
+}
+
+.info-card h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.value {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.good {
+    color: green;
+}
+
+.off {
+    color: red;
+}
+
+/* Project Section */
+
 .project-section {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 80px auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 60px;
     align-items: center;
 }
 
@@ -13,14 +77,14 @@
 
 .image-container img {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     border-radius: 25px;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
 .project-info {
     background: white;
-    padding: 35px;
+    padding: 40px;
     border-radius: 25px;
     box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
     text-align: left;
@@ -28,19 +92,30 @@
 
 .project-info h2 {
     color: #2f67c7;
+    font-size: 40px;
     margin-bottom: 20px;
-    font-size: 32px;
 }
 
 .project-info p {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.8;
     color: #333;
 }
 
-@media (max-width: 900px) {
+/* Mobile */
+
+@media (max-width: 1000px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
     .project-section {
         grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
     }
 
     .project-info {
