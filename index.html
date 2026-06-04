@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Squirtle Smart Garden</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=10">
 </head>
 
 <body>
@@ -13,11 +13,9 @@
 </header>
 
 <section class="dashboard-grid">
-
     <div class="info-card">
         <h2>🌡 Temperature</h2>
         <p class="value">24°C</p>
-
         <h2>💧 Humidity</h2>
         <p class="value">55%</p>
     </div>
@@ -25,7 +23,6 @@
     <div class="info-card">
         <h2>🚰 Water Level</h2>
         <p class="value good">OK</p>
-
         <h2>🕒 Last Watered</h2>
         <p class="value">7:43 PM</p>
     </div>
@@ -33,49 +30,143 @@
     <div class="info-card">
         <h2>⚙️ Pump Status</h2>
         <p class="value off">OFF</p>
-
         <h2>⏳ Cooldown</h2>
         <p class="value good">Ready</p>
     </div>
-
 </section>
 
-<section class="project-section">
-
-    <div class="image-container">
-        <img src="squirtle.jpg" alt="Squirtle Project">
+<section class="split-section">
+    <div class="image-box">
+        <img src="squirtle.jpg" alt="Final Squirtle Smart Garden">
     </div>
 
-    <div class="project-info">
+    <div class="text-box">
         <h2>Project Overview</h2>
         <p>The Squirtle Smart Garden is an ESP32-powered automated watering system designed to monitor environmental conditions and water plants automatically when needed.</p>
-        <p>Sensors monitor temperature, humidity, and water levels while a pump delivers water when conditions require it.</p>
+        <p>The system monitors temperature, humidity, and water level while controlling a pump through a MOSFET module.</p>
         <p>This project combines 3D printing, electronics, soldering, programming, and web development into one complete engineering project.</p>
     </div>
-
 </section>
 
-<section class="design-story">
+<section class="section-title">
+    <h2>Design Journey</h2>
+    <p>How the project evolved from the original concept into the final Squirtle design.</p>
+</section>
 
+<section class="three-grid">
     <div class="story-card">
         <img src="ladybug-design.jpg" alt="Original Ladybug Design">
-        <h2>Original Ladybug Design</h2>
-        <p>The project originally began as a ladybug-themed smart garden. The design looked creative, but the internal space was limited, making it harder to fit the pump, reservoir, wiring, and sensors cleanly.</p>
+        <h3>Original Ladybug Design</h3>
+        <p>The project originally began as a ladybug-themed smart garden. The concept was creative, but the internal space was limited, making it difficult to fit the reservoir, pump, wiring, and sensors cleanly.</p>
     </div>
 
     <div class="story-card">
         <img src="redesign-process.jpg" alt="Design Evaluation">
-        <h2>Design Evaluation</h2>
-        <p>After reviewing the original idea, I realized the design would be difficult to maintain and modify. I redesigned the project to improve access, water routing, stability, and reliability.</p>
+        <h3>Design Evaluation</h3>
+        <p>After reviewing the first design, I realized it would be difficult to maintain and modify. I redesigned the project to improve component access, water routing, stability, and reliability.</p>
     </div>
 
     <div class="story-card">
         <img src="final-squirtle.jpg" alt="Final Squirtle Design">
-        <h2>Final Squirtle Design</h2>
-        <p>The final Squirtle design provides more internal room, better component placement, and a stronger project theme while combining 3D printing, ESP32 programming, sensors, pump control, and a web dashboard.</p>
+        <h3>Final Squirtle Design</h3>
+        <p>The Squirtle design provided more internal room, better component placement, and a stronger visual theme. This made the project more functional, easier to assemble, and better suited for future upgrades.</p>
+    </div>
+</section>
+
+<section class="section-title">
+    <h2>System Architecture</h2>
+    <p>The ESP32 acts as the main controller for the sensors, pump system, and dashboard.</p>
+</section>
+
+<section class="split-section">
+    <div class="text-box">
+        <h2>How It Works</h2>
+        <p>The temperature and humidity sensor measures the surrounding environment.</p>
+        <p>The water level sensor checks if the reservoir has enough water.</p>
+        <p>The ESP32 processes the sensor readings and controls the pump based on the system logic.</p>
+        <p>The website displays the system status so the project can be monitored through a browser.</p>
     </div>
 
+    <div class="image-box">
+        <img src="circuit.jpg" alt="Circuit Wiring">
+    </div>
 </section>
+
+<section class="section-title">
+    <h2>Components Used</h2>
+</section>
+
+<section class="three-grid">
+    <div class="small-card">
+        <h3>Microcontroller</h3>
+        <p>ESP32</p>
+    </div>
+
+    <div class="small-card">
+        <h3>Sensors</h3>
+        <p>Temperature/Humidity Sensor, Float Switch, Ultrasonic Sensor</p>
+    </div>
+
+    <div class="small-card">
+        <h3>Water System</h3>
+        <p>Water Pump, MOSFET Module, Reservoir, Tubing</p>
+    </div>
+
+    <div class="small-card">
+        <h3>Structure</h3>
+        <p>3D Printed Squirtle Body and Shell</p>
+    </div>
+
+    <div class="small-card">
+        <h3>Power</h3>
+        <p>External Power Supply and Common Ground System</p>
+    </div>
+
+    <div class="small-card">
+        <h3>Website</h3>
+        <p>HTML, CSS, GitHub Pages</p>
+    </div>
+</section>
+
+<section class="section-title">
+    <h2>Features</h2>
+</section>
+
+<section class="features">
+    <p>✅ Automatic watering control</p>
+    <p>✅ Temperature monitoring</p>
+    <p>✅ Humidity monitoring</p>
+    <p>✅ Water level detection</p>
+    <p>✅ Pump cooldown protection</p>
+    <p>✅ Web-based dashboard</p>
+</section>
+
+<section class="section-title">
+    <h2>Skills Learned</h2>
+</section>
+
+<section class="features">
+    <p>CAD Design</p>
+    <p>3D Printing</p>
+    <p>Soldering</p>
+    <p>ESP32 Programming</p>
+    <p>Sensor Integration</p>
+    <p>HTML/CSS Web Development</p>
+    <p>GitHub Pages Deployment</p>
+</section>
+
+<section class="section-title">
+    <h2>Future Improvements</h2>
+</section>
+
+<section class="text-box full-width">
+    <p>Future upgrades could include adding a soil moisture sensor, mobile notifications, cloud data logging, battery backup, and a custom mobile app for remote control.</p>
+</section>
+
+<footer>
+    <p>Designed and built by Omar Hashemi</p>
+    <p>ESP32 Smart Garden Project</p>
+</footer>
 
 </body>
 </html>
