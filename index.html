@@ -200,16 +200,13 @@
 </footer>
 
 <script>
-
     const firebaseConfig = {
       apiKey: "AIzaSyDiyMvix-Dif3bwqLtdEsIFCGUE1jdn66Y", 
       databaseURL: "https://squirtle-smart-garden-default-rtdb.firebaseio.com/"
     };
 
- 
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
-
 
     const tempElement = document.getElementById('temp-display');
     const humidElement = document.getElementById('humidity-display');
@@ -218,64 +215,52 @@
     const pumpElement = document.getElementById('pump-status-display');
     const cooldownElement = document.getElementById('cooldown-display');
     
- 
+    // Listener for general sensor data
     database.ref('/sensorData').on('value', (snapshot) => {
       const data = snapshot.val();
       
       if (data) {
-        console.log("Squirtle Garden Syncing Live Data:", data);
-
-        if (tempElement && data.temperature !== undefined) {
-          tempElement.innerHTML = `<strong>${data.temperature.toFixed(1)}°C</strong>`;
-        }
+        if (tempElement && data.temperature !== undefined) tempElement.innerHTML = `<strong>${data.temperature.toFixed(1)}°C</strong>`;
+        if (humidElement && data.humidity !== undefined) humidElement.innerHTML = `<strong>${data.humidity.toFixed(0)}%</strong>`;
         
-        if (humidElement && data.humidity !== undefined) {
-          humidElement.innerHTML = `<strong>${data.humidity.toFixed(0)}%</strong>`;
-        }
-        
-    
         if (waterElement && data.waterLevel) {
           waterElement.innerHTML = `<strong>${data.waterLevel}</strong>`;
-          if (data.waterLevel === "LOW") {
-             waterElement.style.color = "#ef4444";
-          } else {
-             waterElement.style.color = "#22c55e"; 
-          }
+          waterElement.style.color = (data.waterLevel === "LOW") ? "#ef4444" : "#22c55e";
         }
 
-       
         if (pumpElement && data.pumpStatus) {
           pumpElement.innerHTML = `<strong>${data.pumpStatus}</strong>`;
-        
           if (data.pumpStatus === "ON") {
-            pumpElement.style.color = "#3b82f6"; 
-            
-        
+            pumpElement.style.color = "#3b82f6";
+            // Update timestamp when pump turns on
             const now = new Date();
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; 
-            if (lastWateredElement) {
-              lastWateredElement.innerHTML = `<strong>${hours}:${minutes} ${ampm}</strong>`;
-            }
-          } else if (data.pumpStatus === "LOCKED") {
-            pumpElement.style.color = "#f59e0b"; 
+            hours = hours % 12 || 12;
+            const timeString = `${hours}:${minutes} ${ampm}`;
+            if (lastWateredElement) lastWateredElement.innerHTML = `<strong>${timeString}</strong>`;
+            // Push this to Firebase so it persists
+            database.ref('/lastWatered').set(timeString);
           } else {
-            pumpElement.style.color = "#ef4444";
+            pumpElement.style.color = (data.pumpStatus === "LOCKED") ? "#f59e0b" : "#ef4444";
           }
         }
 
         if (cooldownElement) {
-          if (data.pumpStatus === "ON") {
-            cooldownElement.innerHTML = `<strong>Active</strong>`;
-            cooldownElement.style.color = "#f59e0b";
-          } else {
-            cooldownElement.innerHTML = `<strong>Ready</strong>`;
-            cooldownElement.style.color = "#22c55e";
-          }
+          cooldownElement.innerHTML = data.pumpStatus === "ON" ? `<strong>Active</strong>` : `<strong>Ready</strong>`;
+          cooldownElement.style.color = data.pumpStatus === "ON" ? "#f59e0b" : "#22c55e";
         }
+      }
+    });
+
+    // New Listener: Persist the last watered time
+    database.ref('/lastWatered').on('value', (snapshot) => {
+      const savedTime = snapshot.val();
+      if (savedTime && lastWateredElement) {
+        lastWateredElement.innerHTML = `<strong>${savedTime}</strong>`;
+      } else if (lastWateredElement) {
+        lastWateredElement.innerHTML = `<strong>Waiting...</strong>`;
       }
     });
 </script>
