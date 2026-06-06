@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squirtle Smart Garden</title>
     <link rel="stylesheet" href="style.css?v=14">
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 
 <body>
@@ -17,23 +20,23 @@
 <section class="dashboard-grid">
     <div class="info-card">
         <h2>🌡 Temperature</h2>
-        <p class="value">24°C</p>
+        <p class="value" id="temp-display">24°C</p>
         <h2>💧 Humidity</h2>
-        <p class="value">55%</p>
+        <p class="value" id="humidity-display">55%</p>
     </div>
 
     <div class="info-card">
         <h2>🚰 Water Level</h2>
-        <p class="value good">OK</p>
+        <p class="value good" id="water-level-display">OK</p>
         <h2>🕒 Last Watered</h2>
-        <p class="value">7:43 PM</p>
+        <p class="value" id="last-watered-display">7:43 PM</p>
     </div>
 
     <div class="info-card">
         <h2>⚙️ Pump Status</h2>
-        <p class="value off">OFF</p>
+        <p class="value off" id="pump-status-display">OFF</p>
         <h2>⏳ Cooldown</h2>
-        <p class="value good">Ready</p>
+        <p class="value good" id="cooldown-display">Ready</p>
     </div>
 </section>
 
@@ -196,59 +199,64 @@
     <p>ESP32 Smart Garden Project</p>
 </footer>
 
-</body>
-</html>
+<script>
 
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-
-  <script>
     const firebaseConfig = {
       apiKey: "", 
       databaseURL: "https://squirtle-smart-garden-default-rtdb.firebaseio.com/"
     };
 
-
+ 
     firebase.initializeApp(firebaseConfig);
-   const database = firebase.database();
+    const database = firebase.database();
 
-    const tempElement = document.querySelector('.dashboard-grid .info-card:nth-child(1) p:nth-of-type(1)');
-    const humidElement = document.querySelector('.dashboard-grid .info-card:nth-child(1) p:nth-of-type(2)');
-    const waterElement = document.querySelector('.dashboard-grid .info-card:nth-child(2) p:nth-of-type(1)');
-    const lastWateredElement = document.querySelector('.dashboard-grid .info-card:nth-child(2) p:nth-of-type(2)');
-    const pumpElement = document.querySelector('.dashboard-grid .info-card:nth-child(3) p:nth-of-type(1)');
-    const cooldownElement = document.querySelector('.dashboard-grid .info-card:nth-child(3) p:nth-of-type(2)');
+
+    const tempElement = document.getElementById('temp-display');
+    const humidElement = document.getElementById('humidity-display');
+    const waterElement = document.getElementById('water-level-display');
+    const lastWateredElement = document.getElementById('last-watered-display');
+    const pumpElement = document.getElementById('pump-status-display');
+    const cooldownElement = document.getElementById('cooldown-display');
     
+ 
     database.ref('/sensorData').on('value', (snapshot) => {
       const data = snapshot.val();
       
       if (data) {
-        console.log("Squirtle Garden Syncing:", data);
+        console.log("Squirtle Garden Syncing Live Data:", data);
 
         if (tempElement && data.temperature !== undefined) {
           tempElement.innerHTML = `<strong>${data.temperature.toFixed(1)}°C</strong>`;
         }
+        
         if (humidElement && data.humidity !== undefined) {
           humidElement.innerHTML = `<strong>${data.humidity.toFixed(0)}%</strong>`;
         }
+        
+    
         if (waterElement && data.waterLevel) {
           waterElement.innerHTML = `<strong>${data.waterLevel}</strong>`;
-
-          waterElement.style.color = (data.waterLevel === "LOW") ? "#ef4444" : "#22c55e";
+          if (data.waterLevel === "LOW") {
+             waterElement.style.color = "#ef4444";
+          } else {
+             waterElement.style.color = "#22c55e"; 
+          }
         }
 
+       
         if (pumpElement && data.pumpStatus) {
           pumpElement.innerHTML = `<strong>${data.pumpStatus}</strong>`;
         
           if (data.pumpStatus === "ON") {
-            pumpElement.style.color = "#3b82f6"; // Blue
-    
+            pumpElement.style.color = "#3b82f6"; 
+            
+        
             const now = new Date();
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const ampm = hours >= 12 ? 'PM' : 'AM';
             hours = hours % 12;
-            hours = hours ? hours : 12;
+            hours = hours ? hours : 12; 
             if (lastWateredElement) {
               lastWateredElement.innerHTML = `<strong>${hours}:${minutes} ${ampm}</strong>`;
             }
@@ -270,4 +278,7 @@
         }
       }
     });
-  </script>
+</script>
+
+</body>
+</html>
