@@ -215,7 +215,6 @@
     const pumpElement = document.getElementById('pump-status-display');
     const cooldownElement = document.getElementById('cooldown-display');
     
-    // Listener for general sensor data
     database.ref('/sensorData').on('value', (snapshot) => {
       const data = snapshot.val();
       
@@ -232,7 +231,7 @@
           pumpElement.innerHTML = `<strong>${data.pumpStatus}</strong>`;
           if (data.pumpStatus === "ON") {
             pumpElement.style.color = "#3b82f6";
-            // Update timestamp when pump turns on
+       
             const now = new Date();
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
@@ -240,7 +239,7 @@
             hours = hours % 12 || 12;
             const timeString = `${hours}:${minutes} ${ampm}`;
             if (lastWateredElement) lastWateredElement.innerHTML = `<strong>${timeString}</strong>`;
-            // Push this to Firebase so it persists
+      
             database.ref('/lastWatered').set(timeString);
           } else {
             pumpElement.style.color = (data.pumpStatus === "LOCKED") ? "#f59e0b" : "#ef4444";
@@ -254,7 +253,7 @@
       }
     });
 
-    // New Listener: Persist the last watered time
+
     database.ref('/lastWatered').on('value', (snapshot) => {
       const savedTime = snapshot.val();
       if (savedTime && lastWateredElement) {
