@@ -1,7 +1,10 @@
 An automated, 3D-printed smart plant waterer powered by an ESP32 and environmental sensors. View the live project showcase at https://o-hashemi.github.io/Squirtle-Smart-Garden/ 
 
 
-CODE:
+
+
+CODE :
+
 
 
 // ================================= LIBRARIES =================================
@@ -116,14 +119,14 @@ void setup() {
     Serial.println("\nWiFi Connected successfully!");
     
 
-   timeClient.begin();
+  timeClient.begin();
     
 
   config.host = FIREBASE_HOST;
-   config.signer.tokens.legacy_token = FIREBASE_AUTH;
+    config.signer.tokens.legacy_token = FIREBASE_AUTH;
     
    Firebase.reconnectWiFi(true);
- Firebase.begin(&config, &auth);
+    Firebase.begin(&config, &auth);
     Serial.println("Firebase Handshake Complete!");
   } else {
     Serial.println("\nWiFi Connection Failed. Checking local loops...");
@@ -142,7 +145,7 @@ void loop() {
   if (currentTime - lastReadTime >= readInterval) {
     lastReadTime = currentTime;
     
-   // ================================= FLOAT SWITCH =================================
+  // ================================= FLOAT SWITCH =================================
     int waterLevel = digitalRead(FLOAT_PIN);
     
   if (waterLevel == LOW) {
@@ -152,11 +155,11 @@ void loop() {
       Serial.println("NO WATER -> PUMP LOCKED");
       
  
-   if (WiFi.status() == WL_CONNECTED && Firebase.ready()) {
+  if (WiFi.status() == WL_CONNECTED && Firebase.ready()) {
         Firebase.setString(fbdo, "/sensorData/pumpStatus", pumpStatus);
         Firebase.setString(fbdo, "/sensorData/waterLevel", waterLevelStatus);
-      }
-    } else {
+     }
+  } else {
       waterLevelStatus = "OK";
     }
     
@@ -172,11 +175,12 @@ void loop() {
     Serial.print(moisturePercent);
     Serial.print("% | ");
     
-   // ================================= TEMP + HUMIDITY =================================
-    float temperature = 0.0;
+    
+  // ================================= TEMP + HUMIDITY =================================
+   float temperature = 0.0;
     float humidity = 0.0;
     
-   if (sht31Found) {
+  if (sht31Found) {
       temperature = sht31.readTemperature();
       humidity = sht31.readHumidity();
       
@@ -188,17 +192,19 @@ void loop() {
     } else {
       Serial.print("SHT31 OFFLINE | ");
     }
-        // ================================= WATER LOGIC =================================
+    
+  // ================================= WATER LOGIC =================================
     if (moisturePercent < waterThreshold) {
       if (currentTime - lastOutputTime >= cooldownTime) {
         Serial.println("DRY -> PUMP ON");
         pumpStatus = "ON";
         
-  if (WiFi.status() == WL_CONNECTED && Firebase.ready()) {
+ 
+   if (WiFi.status() == WL_CONNECTED && Firebase.ready()) {
             Firebase.setString(fbdo, "/lastWatered", timeClient.getFormattedTime());
         }
         
-  digitalWrite(OUTPUT_PIN, OUTPUT_ON);
+   digitalWrite(OUTPUT_PIN, OUTPUT_ON);
         delay(outputTime);
         digitalWrite(OUTPUT_PIN, OUTPUT_OFF);
         
@@ -222,7 +228,7 @@ void loop() {
       Firebase.setString(fbdo, "/sensorData/waterLevel", waterLevelStatus);
       
   if (sht31Found) {
-        Firebase.setFloat(fbdo, "/sensorData/temperature", temperature);
+    Firebase.setFloat(fbdo, "/sensorData/temperature", temperature);
         Firebase.setFloat(fbdo, "/sensorData/humidity", humidity);
       }
       Serial.println("-> Firebase Updated!");
