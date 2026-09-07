@@ -2,6 +2,8 @@ An automated, 3D-printed smart plant waterer powered by an ESP32 and environment
 
 
 CODE:
+
+
 // ================================= LIBRARIES =================================
 #include <WiFi.h>
 #include <Wire.h>
